@@ -35,7 +35,7 @@ table tr td:last-child  {
 
 
 .end{
-    /* display: none; */
+    display: none;
     width: 400px;
     top: 340px;
     background-color: rgba(205,133,63,0.8);
