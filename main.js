@@ -1,7 +1,7 @@
-var Board;
+var   board;
 const humPlayer = 'O';
       aiPlayer  = 'X';
-      cells = document.querySelector('.cell');
+      cells = document.querySelectorAll('.cell');
       winCells = [
           [0,1,2],
           [3,4,5],
@@ -12,3 +12,25 @@ const humPlayer = 'O';
           [0,4,8],
           [6,4,2]
       ]
+
+
+startGame();
+
+function startGame() {
+    document.querySelector('.end').style.display = "none"
+    board = Array.from(Array(9).keys());
+    for (var i = 0; i < cells.length; i++){
+        cells[i].innerText = '';
+        cells[i].style.removeProperty('background-color')
+        cells[i].addEventListener('click', turnClick, false);
+    }
+}
+
+function turnClick(square) {
+    turn(square.target.id, humPlayer)
+}
+
+function turn(squareId, player){
+    board[squareId] = player;
+    document.getElementById(squareId).innerText = player;
+}
